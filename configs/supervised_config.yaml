@@ -1,0 +1,78 @@
+# ==========================================
+# System & Environment
+# ==========================================
+device: cuda
+train_num_workers: 1
+val_num_workers: 2
+test_num_workers: 8
+unlabeled_num_workers: null
+save_interval: null
+
+# ==========================================
+# Data & Features
+# ==========================================
+task: supervised
+canary_df_path: /home/Datasets/canaries/curated_canary_df.csv
+bengalese_finch_df_path: /home/Datasets/bengalese_finch/curated_bengalese_finch_df.csv
+species: null  # bengalese_finch, canary
+bird: null
+sr: 32000
+n_fft: 512
+hop_length: 64
+sample_dur: 10.0
+unlabeled_sample_dur: null
+
+# ==========================================
+# Model Architecture
+# ==========================================
+num_clusters: null
+input_dim: 256
+hidden_dim: 512
+num_layers: 2
+encoder_dropout: 0
+head_dropout: 0.2
+head_norm: false
+pretrained_path: null  # /home/Projects/RMR_syllable_detection/logs/SSL/step(10000)_MAE_state_bengalese_finch_{time_stamp}.pt
+finetune: true
+
+# ==========================================
+# Training & Optimization
+# ==========================================
+train_batch_size: 32
+val_batch_size: 4
+test_batch_size: 1
+unlabeled_batch_size: null
+optimization_steps: 300
+val_frequency: 10
+metric_to_track: f1
+lr: 1.0e-3
+min_lr: 1.0e-6
+lr_warmup_steps: 30
+weight_decay: 0.001
+adam_beta1: 0.9
+adam_beta2: 0.999
+grad_clip_norm: null
+grad_accumulation_steps: 1
+
+# ==========================================
+# Augmentations
+# ==========================================
+augment: false
+use_bernoulli_noise: false
+bernoulli_noise_chance: 0
+use_random_gain: true
+use_color_noise: true
+color_noise_chance: 0.2
+use_tf_mask: false
+freq_mask_param: 0
+time_mask_param: 0
+tf_mask_repeats: 0
+
+# ==========================================
+# Task Specifics (Semi-Supervised / EMA)
+# ==========================================
+confidence_margin: null
+consistency_loss_weight: null
+ema_decay_start: null
+ema_decay_end: null
+ema_warmup_steps: null

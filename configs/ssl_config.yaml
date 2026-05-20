@@ -1,0 +1,79 @@
+# ==========================================
+# System & Environment
+# ==========================================
+device: cuda
+train_num_workers: 16
+val_num_workers: null
+test_num_workers: null
+unlabeled_num_workers: null
+save_interval: null
+
+# ==========================================
+# Data & Features
+# ==========================================
+task: null  # [ssl_osc, ssl_mae]
+canary_df_path: /home/Datasets/canaries/curated_canary_df.csv
+bengalese_finch_df_path: /home/Datasets/bengalese_finch/curated_bengalese_finch_df.csv
+species: null  # [bengalese_finch, canary, mixed]
+bird: null
+sr: 32000
+n_fft: 512
+hop_length: 64
+sample_dur: 3.0
+unlabeled_sample_dur: null
+
+# ==========================================
+# Model Architecture
+# ==========================================
+num_classes: null
+num_clusters: 1024
+input_dim: 256
+hidden_dim: 512
+num_layers: 2
+encoder_dropout: 0.25
+head_dropout: 0.5
+head_norm: false
+pretrained_path: null
+finetune: null
+
+# ==========================================
+# Training & Optimization
+# ==========================================
+train_batch_size: 64
+val_batch_size: null
+test_batch_size: null
+unlabeled_batch_size: null
+optimization_steps: 10000
+val_frequency: null
+metric_to_track: null
+lr: 5.0e-4
+min_lr: 1.0e-6
+lr_warmup_steps: 1000
+weight_decay: 0.05
+adam_beta1: 0.9
+adam_beta2: 0.95
+grad_clip_norm: null
+grad_accumulation_steps: 1
+
+# ==========================================
+# Augmentations
+# ==========================================
+augment: false
+use_bernoulli_noise: false
+bernoulli_noise_chance: .9
+use_random_gain: true
+use_color_noise: true
+color_noise_chance: 0.9
+use_tf_mask: false
+freq_mask_param: null
+time_mask_param: null
+tf_mask_repeats: null
+
+# ==========================================
+# Task Specifics (Semi-Supervised / EMA)
+# ==========================================
+confidence_margin: null
+consistency_loss_weight: null
+ema_decay_start: .995
+ema_decay_end: .99999
+ema_warmup_steps: 5000
