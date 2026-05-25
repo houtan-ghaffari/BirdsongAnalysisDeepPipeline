@@ -116,10 +116,10 @@ To finetune the syllable detection model for a specific bird, provide the path t
 python -c configs/supervised_config.yaml \
   --species bengalese_finch \
   --bird bl26lb16 \
-  --pretrained_path /path/to/logs/SSL/step(10000)_MAE_state_bengalese_finch_{time_stamp}.pt
+  --pretrained-path /path/to/logs/SSL/step(10000)_MAE_state_bengalese_finch_{time_stamp}.pt
 ```
 
-*Omit the `--pretrained_path` argument to train a model from scratch with random initialization.*
+*Omit the `--pretrained-path` argument to train a model from scratch with random initialization.*
 
 ### Stage 3: Semi-Supervised Tuning (Optional)
 
@@ -133,7 +133,7 @@ Provide the supervised finetuned state from Stage 2:
 python -c configs/semisl_config.yaml \
   --species bengalese_finch \
   --bird bl26lb16 \
-  --pretrained_path /path/to/logs/Supervised/mae_supervised..._{time_stamp}.pt
+  --pretrained-path /path/to/logs/Supervised/mae_supervised..._{time_stamp}.pt
 ```
 
 ---
