@@ -16,8 +16,8 @@ This codebase was developed using **Python 3.11**, **PyTorch 2.8**, and **TorchA
 1. I highly recommend creating an isolated Conda environment, for example:
 ```bash
    conda update -n base conda
-   conda create -n birdsong_sll python=3.11
-   conda activate birdsong_sll
+   conda create -n birdsong_ssl python=3.11
+   conda activate birdsong_ssl
 ```
 
 2. Install PyTorch and TorchAudio according to your system specifications from the [official PyTorch website](https://pytorch.org/). For example:
